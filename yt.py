@@ -15,6 +15,9 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET')
     return response
 
+class ICY(Resource):
+    def get(self):
+        return "Hello World!"
 
 class YTD(Resource):
     def get(self):
@@ -49,6 +52,7 @@ class YTD(Resource):
 
 
 api.add_resource(YTD, '/api', endpoint='api')
+api.add_resource(ICY, '/')
 
 if __name__ == '__main__':
     app.run()
